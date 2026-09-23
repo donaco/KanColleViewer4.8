@@ -23,6 +23,7 @@ namespace Grabacr07.KanColleViewer.Models
 		private const int MaxResponseSizeBytes = 1 * 1024 * 1024;
 		private static readonly TimeSpan RequestTimeout = TimeSpan.FromSeconds(15);
 		private static IReadOnlyDictionary<int, TPSlotItemEntry> _entries;
+		private const string SlotItemSectionKey = "slotItemTp";
 
 		public static IReadOnlyDictionary<int, TPSlotItemEntry> Entries
 		{
@@ -126,7 +127,7 @@ namespace Grabacr07.KanColleViewer.Models
 					return new Dictionary<int, TPSlotItemEntry>();
 
 				var root = JObject.Parse(File.ReadAllText(path));
-				var ships = root["TPSlotItem"] as JObject;
+				var ships = root[SlotItemSectionKey] as JObject;
 				if (ships == null)
 					return new Dictionary<int, TPSlotItemEntry>();
 
@@ -221,7 +222,7 @@ namespace Grabacr07.KanColleViewer.Models
 			try
 			{
 				var root = JObject.Parse(content);
-				var ships = root["TPSlotItem"] as JObject;
+				var ships = root[SlotItemSectionKey] as JObject;
 
 				return ships != null && ships.HasValues;
 			}
