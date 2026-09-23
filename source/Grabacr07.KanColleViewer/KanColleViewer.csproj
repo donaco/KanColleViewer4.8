@@ -197,6 +197,7 @@
     <Compile Include="Models\Cef\CustomRequestHandler.cs" />
     <Compile Include="Models\Cef\ResponseFilter.cs" />
     <Compile Include="Models\Cef\ScreenshotRequest.cs" />
+    <Compile Include="Models\TPSlotItemProvider.cs" />
     <Compile Include="Models\ExitConfirmationType.cs" />
     <Compile Include="Models\IZoomFactor.cs" />
     <Compile Include="Models\MonitorHelper.cs" />
